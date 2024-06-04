@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InnovateTech - Your Tech Destination</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="../day17/bro.css" defer></script>
+</head>
+<body>
+  <header>
+    <h1>TECH WATCHES</h1>
+  </header>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Products</a>
+    <a href="#">About Us</a>
+    <a href="#">Contact Us</a>
+  </nav>
+  <main>
+    <section class="product-list">
+      <h>PRODUCTS</h>
+
+      <h2>FASTRACK</h2>
+      
+        <img src="https://tse3.mm.bing.net/th?id=OIP.eQsmjL6N6UcTA2p4IkQLygHaHg&pid=Api&P=0&h=180" alt="FASTRACK">
+       
+        <p>[Trending Day and Date  Function for Boys]</p>
+        <p>$799.99</p>
+        <p><label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" value="0" min="0"></p>
+        <button onclick="addToCart(this)">Add to Cart</button>
+        <section class="product-list">
+
+       
+          <h3>SONATA</h3>
+            <img src="https://tse4.mm.bing.net/th?id=OIP.3dO_hnocxr8IOvpUcL5j1gHaEo&pid=Api&P=0&h=180" alt="SONATA">
+          
+            <p>[Slim Runway Analog Watch]</p>
+            <p>$709.99</p>
+            <p><label for="quantity">Quantity:</label>
+              <input type="number" id="quantity" value="0" min="0"></p>
+            <button onclick="addToCart(this)">Add to Cart</button>
+            <section class="product-list">
+
+            <h4>CASIO</h4>
+    
+              <img src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqbw5sxJdMXh3MGlt18x4anAHX9R-r9mJ20g&s" alt="CASIO">
+              <p>[Economy Analog Watch]</p>
+              <p>$709.99</p>
+              <p><label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" value="0" min="0"></p>
+              <button onclick="addToCart(this)">Add to Cart</button>
+              <section class="product-list">
+
+              <h5>TITAN</h5>
+          
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwb2baBlDGxGNkAEA8HvEhx_ka4Sx_nNHA7A&s" alt="TITAN">
+               
+                <p>[Titan Analog Watch]</p>
+                <p>$709.99</p>
+                <p><label for="quantity">Quantity:</label>
+                  <input type="number" id="quantity" value="0" min="0"></p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+                <section class="product-list">
+
+                <h6>FOSSIL</h6>
+        
+                  <img src="https://tse2.mm.bing.net/th?id=OIP.-UDTc7RsHCeD6hrTpIhYyAHaHa&pid=Api&P=0&h=180" alt="FOSSIL">
+                  
+                  <p>[Flynn Analog Watch]</p>
+                  <p><label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" value="0" min="0"></p>
+                  <p>$709.99</p>
+                  <button onclick="addToCart(this)">Add to Cart</button>
+                  <section class="product-list">
+      </article>
+      </section>
+    <section id="cart" class="hidden">
+      <h2>Your Cart</h2>
+    
+      
+      <ul id="cart-items"></ul>
+      <p>Total: $<span id="cart-total">0.00</span></p>
+      <button onclick="clearCart()">Empty Cart</button>
+    </section>
+  </main>
+  <footer>
+  
+  </footer>
+  <script>
+    let cartItems = []; // Array to store cart items
+
+    function addToCart(button) {
+      // Get product information from the product article
+      const product = {
+        name: button.parentElement.querySelector('h2,h3,h4,h5,h6').textContent,
+        price: parseFloat(button.parentElement.querySelector('p').textContent.slice(1))
+      };
+
+      cartItems.push(product); // Add product to cart
+
+      updateCart(); // Update cart display
+    }
+
+    function updateCart() {
+      const cartList = document.getElementById('cart-items');
+      cartList.innerHTML = ''; // Clear existing cart items
+
+      let total = 0;
+      for (const item of cartItems) {
+        const listItem = document.createElement('li');
+        listItem.textContent = item.name + ' - $' + item.price.toFixed(2);
+        
+        // Add a remove button for each item
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Remove';
+        removeButton.onclick = function() {
+          removeFromCart(item);
+        };
+        listItem.appendChild(removeButton);
+
+        cartList.appendChild(listItem);
+        total += item.price;
+      }
+
+      document.getElementById('cart-total').textContent = total.toFixed(2);
+
+      // Show the cart section if items are added
+      if (cartItems.length > 0) {
+        document.getElementById('cart').classList.remove('hidden');
+      } else {
+        document.getElementById('cart').classList.add('hidden');
+      }
+    }
+
+    function removeFromCart(item) {
+      // Find the index of the item in the cart array
+      const itemIndex = cartItems.findIndex(cartItem => cartItem.name === item.name);
+
+      if (itemIndex !== -1) {
+        cartItems.splice(itemIndex, 1); // Remove the item from the array
+        updateCart(); // Update cart display after removal
+      }
+    }
+
+    function clearCart() {
+      cartItems = []; // Empty the cart array
+      updateCart(); // Update cart display to show empty cart
+    }
+  </script>
+</body>
+</html>
+
+
+
