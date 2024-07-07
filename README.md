@@ -1,6 +1,6 @@
 Description This project is an e-commerce website built using HTML, and JavaScript. It allows users to browse products, add items to their cart, and complete purchases.
 
-Website Link: https://Users/rajue/OneDrive/surya%20ecommerce/home.html#
+Website Link: https://github.com/gottimukkulasuryaprakash/surya.git
 
 USER NAME: user name
 
