@@ -1,6 +1,6 @@
 Description This project is an e-commerce website built using HTML, and JavaScript. It allows users to browse products, add items to their cart, and complete purchases.
 
-Website Link:https://github.com/gottimukkulasuryaprakash/E-commerce-project-surya.git
+Website Link:https://gottimukkulasuryaprakash.github.io/E-commerce-project-surya.git
 
 USER NAME: user name
 
