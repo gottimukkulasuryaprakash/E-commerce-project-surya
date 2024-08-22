@@ -6,21 +6,21 @@
 <body>
   <h1>Login</h1>
   <form id="login-form">
-    <p><label for="Username">Username:</label></p>
-    <input type for="text" ><br>
-
-    <P><label for="password">Password:</label></P>
-    <input type="password" id="password" name="password" required>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+  
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" required>
    
   <P>  <button type ="button" onclick="redirect()">Login</button>  </P>
     <p>Don't have an account? <a href="registration.html">Register Now</a></p>
   </form>
   <script>
     function redirect() {
-         window.open('home.html');
+      window.open('home.html');
+    }
   </script>
  
 </body>
 </html>
-
 
